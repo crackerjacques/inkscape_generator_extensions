@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <name>Speed Lines</name>
+    <id>manga.speed.lines</id>
+    
+    <!-- Speed line settings -->
+    <param name="line_count" type="int" min="5" max="200" gui-text="Number of speed lines:">30</param>
+    <param name="line_thickness_start" type="float" min="0.5" max="20.0" gui-text="Start thickness (px):">3.0</param>
+    <param name="line_thickness_end" type="float" min="0.1" max="10.0" gui-text="End thickness (px):">0.5</param>
+    <param name="line_length" type="float" min="50.0" max="1000.0" gui-text="Line length (px):">200.0</param>
+    <param name="line_variation" type="float" min="0.0" max="1.0" gui-text="Length variation (0-1):">0.3</param>
+    
+    <!-- Center space settings -->
+    <param name="center_shape" type="optiongroup" appearance="combo" gui-text="Center space shape:">
+        <option value="circle">Circle</option>
+        <option value="ellipse">Ellipse</option>
+        <option value="square">Square</option>
+        <option value="rectangle">Rectangle</option>
+        <option value="star">Star</option>
+    </param>
+    
+    <param name="center_size_x" type="float" min="10.0" max="500.0" gui-text="Center width (px):">80.0</param>
+    <param name="center_size_y" type="float" min="10.0" max="500.0" gui-text="Center height (px):">80.0</param>
+    
+    <!-- Center offset settings -->
+    <param name="center_offset_x" type="float" min="-200.0" max="200.0" gui-text="Center offset X (px):">0.0</param>
+    <param name="center_offset_y" type="float" min="-200.0" max="200.0" gui-text="Center offset Y (px):">0.0</param>
+    
+    <!-- Direction settings -->
+    <param name="direction" type="optiongroup" appearance="combo" gui-text="Line direction:">
+        <option value="outward">Outward (from center)</option>
+        <option value="inward">Inward (to center)</option>
+        <option value="both">Both directions</option>
+    </param>
+    
+    <!-- Angle settings -->
+    <param name="angle_start" type="float" min="0.0" max="360.0" gui-text="Start angle (degrees):">0.0</param>
+    <param name="angle_range" type="float" min="10.0" max="360.0" gui-text="Angle range (degrees):">360.0</param>
+    <param name="angle_randomness" type="float" min="0.0" max="45.0" gui-text="Angle randomness (degrees):">5.0</param>
+    
+    <!-- Style settings -->
+    <param name="line_color" type="color" gui-text="Line color:">#000000ff</param>
+    <param name="line_opacity" type="float" min="0.0" max="1.0" gui-text="Line opacity (0-1):">1.0</param>
+    
+    <param name="blend_mode" type="optiongroup" appearance="combo" gui-text="Blend mode:">
+        <option value="normal">Normal</option>
+        <option value="multiply">Multiply</option>
+        <option value="screen">Screen</option>
+        <option value="overlay">Overlay</option>
+        <option value="soft-light">Soft Light</option>
+        <option value="hard-light">Hard Light</option>
+        <option value="color-dodge">Color Dodge</option>
+        <option value="color-burn">Color Burn</option>
+        <option value="darken">Darken</option>
+        <option value="lighten">Lighten</option>
+    </param>
+    
+    <!-- Canvas settings -->
+    <param name="canvas_width" type="float" min="100.0" max="2000.0" gui-text="Canvas width (px):">400.0</param>
+    <param name="canvas_height" type="float" min="100.0" max="2000.0" gui-text="Canvas height (px):">400.0</param>
+    
+    <effect>
+        <object-type>all</object-type>
+        <effects-menu>
+            <submenu name="Render"/>
+        </effects-menu>
+    </effect>
+    <script>
+        <command location="inx" interpreter="python">speed_lines.py</command>
+    </script>
+</inkscape-extension>

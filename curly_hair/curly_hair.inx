@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <name>Curly Hair Generator</name>
+    <id>hair.curly.generator</id>
+    
+    <!-- Hair type presets -->
+    <param name="hair_type" type="optiongroup" appearance="combo" gui-text="Hair type preset:">
+        <option value="custom">Custom</option>
+        <option value="loose_curls">Loose curls</option>
+        <option value="tight_curls">Tight curls</option>
+        <option value="wavy">Wavy</option>
+        <option value="kinky">Kinky</option>
+        <option value="mustache">Mustache hair</option>
+        <option value="eyelashes">Eyelashes</option>
+        <option value="fur">Animal fur</option>
+    </param>
+    
+    <!-- Basic settings -->
+    <param name="strand_count" type="int" min="1" max="100" gui-text="Number of strands:">10</param>
+    <param name="length_min" type="float" min="10.0" max="500.0" gui-text="Min length (px):">50.0</param>
+    <param name="length_max" type="float" min="10.0" max="500.0" gui-text="Max length (px):">150.0</param>
+    
+    <!-- Thickness -->
+    <param name="thickness_start" type="float" min="0.1" max="20.0" gui-text="Start thickness (px):">3.0</param>
+    <param name="thickness_end" type="float" min="0.01" max="10.0" gui-text="End thickness (px):">0.2</param>
+    <param name="taper_position" type="float" min="0.0" max="1.0" gui-text="Taper start (0-1):">0.3</param>
+    
+    <!-- Curl settings -->
+    <param name="curl_strength" type="float" min="0.0" max="2.0" gui-text="Curl strength:">1.0</param>
+    <param name="curl_frequency" type="float" min="0.1" max="10.0" gui-text="Curl frequency:">2.0</param>
+    <param name="angle_variation" type="float" min="0.0" max="180.0" gui-text="Angle randomize (±degrees):">45.0</param>
+    <param name="curl_randomness" type="float" min="0.0" max="1.0" gui-text="Random variation (0-1):">0.5</param>
+    
+    <!-- Smoothing -->
+    <param name="smooth_curves" type="bool" gui-text="Smooth curves (Bezier):">true</param>
+    <param name="smoothing_factor" type="float" min="0.0" max="1.0" gui-text="Smoothing factor:">0.5</param>
+    
+    <!-- Position -->
+    <param name="center_x" type="float" min="-500.0" max="500.0" gui-text="Center X (px):">200.0</param>
+    <param name="center_y" type="float" min="-500.0" max="500.0" gui-text="Center Y (px):">200.0</param>
+    <param name="base_direction" type="float" min="0.0" max="360.0" gui-text="Direction (degrees):">270.0</param>
+    <param name="direction_spread" type="float" min="0.0" max="180.0" gui-text="Direction spread:">30.0</param>
+    
+    <!-- Style -->
+    <param name="render_mode" type="optiongroup" appearance="combo" gui-text="Render mode:">
+        <option value="stroke">Stroke (recommended)</option>
+        <option value="simple_stroke">Simple stroke</option>
+        <option value="filled">Filled (tapered shape)</option>
+    </param>
+    
+    <effect>
+        <object-type>all</object-type>
+        <effects-menu>
+            <submenu name="Render"/>
+        </effects-menu>
+    </effect>
+    <script>
+        <command location="inx" interpreter="python">curly_hair.py</command>
+    </script>
+</inkscape-extension>

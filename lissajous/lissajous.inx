@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <name>Lissajous Curves</name>
+    <id>math.lissajous.curves</id>
+    
+    <!-- X-axis sine wave parameters -->
+    <param name="freq_x" type="float" min="0.1" max="20.0" gui-text="X frequency:">1.0</param>
+    <param name="amplitude_x" type="float" min="1.0" max="500.0" gui-text="X amplitude (px):">100.0</param>
+    <param name="phase_x" type="float" min="0.0" max="360.0" gui-text="X phase (degrees):">0.0</param>
+    
+    <!-- Y-axis sine wave parameters -->
+    <param name="freq_y" type="float" min="0.1" max="20.0" gui-text="Y frequency:">1.0</param>
+    <param name="amplitude_y" type="float" min="1.0" max="500.0" gui-text="Y amplitude (px):">100.0</param>
+    <param name="phase_y" type="float" min="0.0" max="360.0" gui-text="Y phase (degrees):">90.0</param>
+    
+    <!-- Drawing parameters -->
+    <param name="num_points" type="int" min="100" max="10000" gui-text="Number of points:">1000</param>
+    <param name="time_duration" type="float" min="1.0" max="50.0" gui-text="Time duration (cycles):">10.0</param>
+    
+    <!-- Center position -->
+    <param name="center_x" type="float" min="-1000.0" max="1000.0" gui-text="Center X (px):">200.0</param>
+    <param name="center_y" type="float" min="-1000.0" max="1000.0" gui-text="Center Y (px):">200.0</param>
+    
+    <!-- Style settings -->
+    <param name="stroke_color" type="color" gui-text="Line color:">#000000ff</param>
+    <param name="stroke_width" type="float" min="0.1" max="20.0" gui-text="Line width (px):">2.0</param>
+    
+    <!-- Advanced options -->
+    <param name="smooth_curve" type="bool" gui-text="Smooth curve (Bezier):">true</param>
+    <param name="show_envelope" type="bool" gui-text="Show envelope rectangle:">false</param>
+    
+    <!-- Preset patterns -->
+    <param name="preset" type="optiongroup" appearance="combo" gui-text="Preset patterns:">
+        <option value="custom">Custom</option>
+        <option value="circle">Circle (1:1, 90°)</option>
+        <option value="ellipse">Ellipse (1:1, 0°)</option>
+        <option value="figure8">Figure 8 (2:1, 0°)</option>
+        <option value="threeleaf">Three Leaf (3:2, 0°)</option>
+        <option value="fourleaf">Four Leaf (3:2, 90°)</option>
+        <option value="star5">Five Point Star (5:4, 0°)</option>
+        <option value="complex1">Complex 1 (7:5, 45°)</option>
+        <option value="complex2">Complex 2 (8:7, 30°)</option>
+    </param>
+    
+    <effect>
+        <object-type>all</object-type>
+        <effects-menu>
+            <submenu name="Render"/>
+        </effects-menu>
+    </effect>
+    <script>
+        <command location="inx" interpreter="python">lissajous.py</command>
+    </script>
+</inkscape-extension>

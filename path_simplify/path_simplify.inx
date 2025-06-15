@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <name>Path Simplify</name>
+    <id>path.point.simplify</id>
+    
+    <!-- Simplification method -->
+    <param name="simplify_method" type="optiongroup" appearance="combo" gui-text="Simplification method:">
+        <option value="douglas_peucker">Douglas-Peucker</option>
+        <option value="distance">Distance threshold</option>
+        <option value="angle">Angle threshold</option>
+        <option value="combined">Combined method</option>
+        <option value="visvalingam">Visvalingam-Whyatt</option>
+    </param>
+    
+    <!-- Douglas-Peucker parameters -->
+    <param name="tolerance" type="float" min="0.1" max="50.0" gui-text="Tolerance (px):">2.0</param>
+    
+    <!-- Distance threshold parameters -->
+    <param name="min_distance" type="float" min="0.1" max="20.0" gui-text="Minimum distance (px):">1.0</param>
+    
+    <!-- Angle threshold parameters -->
+    <param name="angle_threshold" type="float" min="1.0" max="180.0" gui-text="Angle threshold (degrees):">5.0</param>
+    
+    <!-- Advanced options -->
+    <param name="preserve_endpoints" type="bool" gui-text="Preserve start/end points:">true</param>
+    <param name="preserve_corners" type="bool" gui-text="Preserve sharp corners:">true</param>
+    <param name="corner_threshold" type="float" min="10.0" max="170.0" gui-text="Corner angle threshold (degrees):">30.0</param>
+    
+    <!-- Reduction settings -->
+    <param name="max_reduction" type="float" min="0.1" max="0.9" gui-text="Maximum reduction ratio (0-1):">0.8</param>
+    <param name="iterations" type="int" min="1" max="5" gui-text="Iterations:">1</param>
+    
+    <!-- Output options -->
+    <param name="create_copy" type="bool" gui-text="Create copy (keep original):">true</param>
+    <param name="show_removed_points" type="bool" gui-text="Show removed points:">false</param>
+    <param name="show_statistics" type="bool" gui-text="Show statistics:">false</param>
+    
+    <effect needs-live-preview="false">
+        <object-type>path</object-type>
+        <effects-menu>
+            <submenu name="Modify Path"/>
+        </effects-menu>
+    </effect>
+    <script>
+        <command location="inx" interpreter="python">path_simplify.py</command>
+    </script>
+</inkscape-extension>
